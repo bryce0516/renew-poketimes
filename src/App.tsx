@@ -7,6 +7,7 @@ import Home from './Home';
 import { Layout, Menu } from 'antd';
 import About from './About';
 import './App.css'
+import Count from './Count';
 function App() {
   const { Header, Footer, Sider, Content } = Layout;
   return (
@@ -20,7 +21,7 @@ function App() {
                 <NavLink to="/home">Home</NavLink>
               </Menu.Item>
               <Menu.Item key="2">
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/count">Count</NavLink>
               </Menu.Item>
               <Menu.Item key="3">
                 nav 3
@@ -32,8 +33,8 @@ function App() {
               <Route exact path="/home" component={Home}>
                 <Home />
               </Route>
-              <Route exact path="/about" component={About}>
-                <About />
+              <Route exact path="/count" component={Count}>
+                <Count />
               </Route>
             </Switch>
           </Content>
