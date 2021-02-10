@@ -20,7 +20,6 @@ export const decresement = ():DecresementAction => ({
   type: DECRESEMENT
 }) 
 
-
 export const selectCountState = (rootState: RootState) => rootState.countReducer;
 
 const initialState: CountState = {

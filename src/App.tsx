@@ -8,6 +8,7 @@ import { Layout, Menu } from 'antd';
 import About from './About';
 import './App.css'
 import Count from './Count';
+import SagaCount from './SagaCount';
 function App() {
   const { Header, Footer, Sider, Content } = Layout;
   return (
@@ -24,8 +25,8 @@ function App() {
                 <NavLink to="/count">Count</NavLink>
               </Menu.Item>
               <Menu.Item key="3">
-                nav 3
-                </Menu.Item>
+                <NavLink to="/sagacount">SagaCount</NavLink>
+              </Menu.Item>
             </Menu>
           </Header>
           <Content className="site-layout-content" style={{ padding: '0 50px' }}>
@@ -35,6 +36,9 @@ function App() {
               </Route>
               <Route exact path="/count" component={Count}>
                 <Count />
+              </Route>
+              <Route exact path="/sagacount" component={SagaCount}>
+                <SagaCount />
               </Route>
             </Switch>
           </Content>

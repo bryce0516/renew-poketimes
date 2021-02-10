@@ -1,26 +1,27 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
-import countReducer, {  incresement } from '../Count/common/state';
+import countReducer from '../Count/common/state';
 import createSagaMiddleware from 'redux-saga'
 import { all } from 'redux-saga/effects';
-
+import counter, { decreseSaga, increseSaga } from '../SagaCount/common/state'
 
 const sagaMiddleware = createSagaMiddleware()
-const rootReducer = combineReducers({
-  countReducer
-})
 
+const rootReducer = combineReducers({
+  countReducer,
+  counter
+})
 
 export type RootState = ReturnType<typeof rootReducer>
 
 const store = createStore(
   rootReducer,
-  // applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware)
 )
-// function* rootSaga() {
+function* rootSaga() {
+  yield all([increseSaga(), decreseSaga()])
+}
 
-// }
-
-// sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga)
 
 console.log(store.getState())
 
