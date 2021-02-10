@@ -1,41 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css'
+import { Breadcrumb } from 'antd';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+
 export interface NavbarProps {
 
 }
 
 const Navbar: React.SFC<NavbarProps> = () => {
   return (
-    <nav className="nav-wrapper">
-      <div className="container">
-        <a className="brand-logo">Poke'Times</a>
-        <ul className="right">
-        <li className="liStyle"><NavLink to="/">Home</NavLink></li>
-        </ul>
-      </div>
-    </nav>
+    <div className="Header">
+      <Breadcrumb>
+        <Breadcrumb.Item>
+        <a href="/">Home</a>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <a href="/list">Application Center</a>
+        </Breadcrumb.Item>
+      </Breadcrumb>
+    </div>
   );
 }
 
 
 export default Navbar;
-
-
-
-import { Breadcrumb } from 'antd';
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
-
-ReactDOM.render(
-  <Breadcrumb>
-    <Breadcrumb.Item href="">
-      <HomeOutlined />
-    </Breadcrumb.Item>
-    <Breadcrumb.Item href="">
-      <UserOutlined />
-      <span>Application List</span>
-    </Breadcrumb.Item>
-    <Breadcrumb.Item>Application</Breadcrumb.Item>
-  </Breadcrumb>,
-  mountNode,
-);
