@@ -9,6 +9,7 @@ import About from './About';
 import './App.css'
 import Count from './Count';
 import SagaCount from './SagaCount';
+import SagaThings from './SagaThings';
 function App() {
   const { Header, Footer, Sider, Content } = Layout;
   return (
@@ -27,6 +28,9 @@ function App() {
               <Menu.Item key="3">
                 <NavLink to="/sagacount">SagaCount</NavLink>
               </Menu.Item>
+              <Menu.Item key="4">
+                <NavLink to="/sagathings">SagaThings</NavLink>
+              </Menu.Item>
             </Menu>
           </Header>
           <Content className="site-layout-content" style={{ padding: '0 50px' }}>
@@ -39,6 +43,9 @@ function App() {
               </Route>
               <Route exact path="/sagacount" component={SagaCount}>
                 <SagaCount />
+              </Route>
+              <Route exact path="/sagathings" component={SagaThings}>
+                <SagaThings />
               </Route>
             </Switch>
           </Content>
