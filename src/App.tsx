@@ -9,6 +9,7 @@ import { Layout, Menu } from 'antd';
 import './App.css'
 import Count from './Count';
 import Recoder from './Recoder';
+import Timer from './Timer';
 function App() {
   const { Header, Content } = Layout;
   return (
@@ -27,6 +28,9 @@ function App() {
               <Menu.Item key="3">
                 <NavLink to="/recoder">Recoder</NavLink>
               </Menu.Item>
+              <Menu.Item key="4">
+                <NavLink to="/timer">Timer</NavLink>
+              </Menu.Item>
             </Menu>
           </Header>
           <Content className="site-layout-content" style={{ padding: '0 50px' }}>
@@ -39,6 +43,9 @@ function App() {
               </Route>
               <Route path="/recoder" component={Recoder}>
                 <Recoder />
+              </Route>
+              <Route path="/timer" component={Timer}>
+                <Timer />
               </Route>
             </Switch>
           </Content>
