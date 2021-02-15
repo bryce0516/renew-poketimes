@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { decresement, incresement, selectCountState } from './common/state'
+import { decreseasync, decresement, increseasync, incresement, selectCountState } from './common/state'
 
 
 export interface CountProps {
@@ -11,37 +11,36 @@ const Count: React.SFC<CountProps> = () => {
   const dispatch = useDispatch()
   const count = useSelector(selectCountState)
   const [btnChange, setBtnChange] = useState(false)
-  const handleClick = () => {
-    btnChange ? dispatch(incresement()) : dispatch(decresement())
+  const handleIncrease = () => {
+    dispatch(incresement())
   }
-  const handleAsync = () => {
-    // dispatch(incrementAsync())
+  const handleDecrease = () => {
+    dispatch(decresement())
+  }
+  const handleIncreseAsync = () => {
+    dispatch(increseasync())
+  }
+  const handleDecreseAsync = () => {
+    dispatch(decreseasync())
   }
   return (
     <div>
       <h1>This is redux basic formatting</h1>
       <p>{count.value}</p>
       <button onClick={() => {
-        if(!btnChange) {
-          setBtnChange(true)
-        } else {
-          handleClick()
-        }
-
+          handleIncrease()
       }}>
       incresement
       </button>
+
       <button onClick={() => {
-        if(btnChange){
-          setBtnChange(false)
-        } else {
-          handleClick()
-        }
+          handleDecrease()
       }}>
       decresement
       </button>
-      <button onClick={handleAsync}>incresementAsync
-      </button>
+
+      <button onClick={handleIncreseAsync}>incresementAsync</button>
+      <button onClick={handleDecreseAsync}>decresementAsync</button>
     </div>
   );
 }

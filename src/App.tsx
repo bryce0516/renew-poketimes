@@ -8,8 +8,7 @@ import { Layout, Menu } from 'antd';
 import About from './About';
 import './App.css'
 import Count from './Count';
-import SagaCount from './SagaCount';
-import SagaThings from './SagaThings';
+import Recoder from './Recoder';
 function App() {
   const { Header, Footer, Sider, Content } = Layout;
   return (
@@ -26,10 +25,7 @@ function App() {
                 <NavLink to="/count">Count</NavLink>
               </Menu.Item>
               <Menu.Item key="3">
-                <NavLink to="/sagacount">SagaCount</NavLink>
-              </Menu.Item>
-              <Menu.Item key="4">
-                <NavLink to="/sagathings">SagaThings</NavLink>
+                <NavLink to="/recoder">Recoder</NavLink>
               </Menu.Item>
             </Menu>
           </Header>
@@ -38,14 +34,11 @@ function App() {
               <Route exact path="/home" component={Home}>
                 <Home />
               </Route>
-              <Route exact path="/count" component={Count}>
+              <Route path="/count" component={Count}>
                 <Count />
               </Route>
-              <Route exact path="/sagacount" component={SagaCount}>
-                <SagaCount />
-              </Route>
-              <Route exact path="/sagathings" component={SagaThings}>
-                <SagaThings />
+              <Route path="/recoder" component={Recoder}>
+                <Recoder />
               </Route>
             </Switch>
           </Content>
