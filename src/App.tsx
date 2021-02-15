@@ -1,16 +1,16 @@
 
 import React from 'react';
-import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom'
 import 'antd/dist/antd.css';
-import Navbar from './Common/Navbar';
+
 import Home from './Home';
 import { Layout, Menu } from 'antd';
-import About from './About';
+
 import './App.css'
 import Count from './Count';
 import Recoder from './Recoder';
 function App() {
-  const { Header, Footer, Sider, Content } = Layout;
+  const { Header, Content } = Layout;
   return (
     <div className="App">
       <BrowserRouter>
