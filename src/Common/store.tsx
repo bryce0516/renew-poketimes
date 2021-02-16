@@ -1,15 +1,17 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
 import countReducer, { counterSaga } from '../Count/common/state';
-import recoderReducer, { recoderSaga } from '../Recoder/common/state'
+import recoderReducer, { recoderSaga } from '../Recoder/common/state';
+import status, { handleTimer } from '../Timer/common/state'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
   countReducer,
-  recoderReducer
+  recoderReducer,
+  status
 })
 
 export type RootState = ReturnType<typeof rootReducer>
@@ -19,7 +21,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 )
 function* rootSaga() {
-  yield all([counterSaga(), recoderSaga()])
+  yield all([counterSaga(), recoderSaga(), fork(handleTimer)])
 }
 
 sagaMiddleware.run(rootSaga)
