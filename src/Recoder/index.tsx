@@ -3,7 +3,9 @@ import cx from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { midstop, selectRecoderState, start, stop } from './common/state'
 import useCurrentTime from './common/useCurrentTime'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import Calendar from './Calendar/index'
+
 export interface RecoderProps {
   
 }
@@ -80,6 +82,9 @@ const Recoder: React.SFC<RecoderProps> = () => {
           <span></span>
         </button>
           <div className="recorder-counter">{addZero(hours)}:{addZero(minutes)}:{addZero(second)}</div>
+      </div>
+      <div>
+        <Calendar />
       </div>
     </>
 

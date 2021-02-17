@@ -3,7 +3,9 @@ import { put, take, takeEvery,fork, cancel, all, call, race, delay, select, flus
 import { createAction, ActionType, createReducer } from "typesafe-actions";
 import { closeChannel, subscribe } from "./channel";
 import {RootState} from '../../Common/store'
+
 export type Status = "stop" | "pause" | "play";
+
 export interface ISetStatus {
   status: Status;
 }
@@ -112,13 +114,11 @@ const initialState: TimerState = {
 
 const status = createReducer<TimerState, TimerAction>(initialState, {
   [SET_STATUS]: (state, action) => {
-    console.log('createReducer set_status : ',state, action)
     const { status } = action.payload;
     const _state = { ...state, status };
     return _state;
   },
   [SET_COUNT]: (state, action) => {
-    console.log('createReducer count : ',state, action)
     const { payload: count } = action;
     const _state = { ...state, count };
     return _state;
