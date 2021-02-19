@@ -42,6 +42,7 @@ type TimerState = {
   status: Status;
   count: number
 }
+
 export type TimerKey = keyof TimerState;
 
 

@@ -10,7 +10,7 @@ export interface CountProps {
 const Count: React.SFC<CountProps> = () => {
   const dispatch = useDispatch()
   const count = useSelector(selectCountState)
-  const [btnChange, setBtnChange] = useState(false)
+
   const handleIncrease = () => {
     dispatch(incresement())
   }

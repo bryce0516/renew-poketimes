@@ -2,7 +2,7 @@ import './common/Recoder.css'
 import cx from 'classnames' 
 import { useDispatch, useSelector } from 'react-redux'
 import { midstop, selectRecoderState, start, stop } from './common/state'
-import useCurrentTime from './common/useCurrentTime'
+
 import React, { useEffect, useRef, useState } from 'react'
 import Calendar from './Calendar/index'
 

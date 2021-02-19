@@ -5,13 +5,14 @@ import { all, fork } from 'redux-saga/effects';
 import countReducer, { counterSaga } from '../Count/common/state';
 import recoderReducer, { recoderSaga } from '../Recoder/common/state';
 import status, { handleTimer } from '../Timer/common/state'
-
+import loadUEventsReducer from '../Recoder/Calendar/common/state'
 const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
   countReducer,
   recoderReducer,
-  status
+  status,
+  loadUEventsReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
